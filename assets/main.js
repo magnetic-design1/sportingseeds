@@ -1439,110 +1439,6 @@
 		// Initialize.
 			scrollEvents.init();
 	
-	// Deferred.
-		(function() {
-		
-			var items = $$('.deferred'),
-				loadHandler, enterHandler;
-		
-			// Handlers.
-		
-				/**
-				 * "On Load" handler.
-				 */
-				loadHandler = function() {
-		
-					var i = this,
-						p = this.parentElement,
-						duration = 375;
-		
-					// Not "done" yet? Bail.
-						if (i.dataset.src !== 'done')
-							return;
-		
-					// Image loaded faster than expected? Reduce transition duration.
-						if (Date.now() - i._startLoad < duration)
-							duration = 175;
-		
-					// Set transition duration.
-						i.style.transitionDuration = (duration / 1000.00) + 's';
-		
-					// Show image.
-						p.classList.remove('loading');
-						i.style.opacity = 1;
-		
-						setTimeout(function() {
-		
-							// Clear background image.
-								i.style.backgroundImage = 'none';
-		
-							// Clear transition properties.
-								i.style.transitionProperty = '';
-								i.style.transitionTimingFunction = '';
-								i.style.transitionDuration = '';
-		
-						}, duration);
-		
-				};
-		
-				/**
-				 * "On Enter" handler.
-				 */
-				enterHandler = function() {
-		
-					var	i = this,
-						p = this.parentElement,
-						src;
-		
-					// Get src, mark as "done".
-						src = i.dataset.src;
-						i.dataset.src = 'done';
-		
-					// Mark parent as loading.
-						p.classList.add('loading');
-		
-					// Swap placeholder for real image src.
-						i._startLoad = Date.now();
-						i.src = src;
-		
-				};
-		
-			// Initialize items.
-				items.forEach(function(p) {
-		
-					var i = p.firstElementChild;
-		
-					// Set parent to placeholder.
-						if (!p.classList.contains('enclosed')) {
-		
-							p.style.backgroundImage = 'url(' + i.src + ')';
-							p.style.backgroundSize = '100% 100%';
-							p.style.backgroundPosition = 'top left';
-							p.style.backgroundRepeat = 'no-repeat';
-		
-						}
-		
-					// Hide image.
-						i.style.opacity = 0;
-		
-					// Set transition properties.
-						i.style.transitionProperty = 'opacity';
-						i.style.transitionTimingFunction = 'ease-in-out';
-		
-					// Load event.
-						i.addEventListener('load', loadHandler);
-		
-					// Add to scroll events.
-						scrollEvents.add({
-							element: i,
-							enter: enterHandler,
-							offset: 250,
-						});
-		
-				});
-		
-		})();
-	
 	// "On Visible" animation.
 		var onvisible = {
 		
@@ -3472,11 +3368,11 @@
 	
 	// Initialize "On Visible" animations.
 		onvisible.add('h1.style7, h2.style7, h3.style7, p.style7', { style: 'fade-right', speed: 1000, intensity: 5, threshold: 3, delay: 250, replay: false });
-		onvisible.add('h1.style1, h2.style1, h3.style1, p.style1', { style: 'fade-left', speed: 1000, intensity: 5, threshold: 3, delay: 250, replay: false });
+		onvisible.add('h1.style1, h2.style1, h3.style1, p.style1', { style: 'fade-left', speed: 1000, intensity: 5, threshold: 3, delay: 250, replay: true });
 		onvisible.add('.buttons.style1', { style: 'fade-up', speed: 1000, intensity: 5, threshold: 3, delay: 250, replay: false });
 		onvisible.add('.image.style1', { style: 'zoom-in-image', speed: 1000, intensity: 2, threshold: 3, delay: 0, replay: true });
-		onvisible.add('.image.style2', { style: 'zoom-out', speed: 1250, intensity: 10, threshold: 3, delay: 0, replay: false });
 		onvisible.add('.icons.style1', { style: 'fade-up', speed: 1000, intensity: 5, threshold: 3, delay: 250, stagger: 250, staggerSelector: ':scope > li', replay: false });
+		onvisible.add('.image.style2', { style: 'zoom-out', speed: 1250, intensity: 10, threshold: 3, delay: 0, replay: false });
 		onvisible.add('.image.style3', { style: 'zoom-out-image', speed: 1250, intensity: 10, threshold: 3, delay: 0, replay: true });
 		onvisible.add('.container.style1', { style: 'fade-in', speed: 1000, intensity: 5, threshold: 3, delay: 125, replay: false });
 		onvisible.add('.image.style4', { style: 'zoom-out', speed: 1250, intensity: 10, threshold: 3, delay: 0, replay: false });

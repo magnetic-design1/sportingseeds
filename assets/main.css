@@ -205,7 +205,7 @@ unloaded-script {
 	--padding-horizontal: 6rem;
 	--padding-vertical: 6rem;
 	--spacing: 2rem;
-	--width: 70rem;
+	--width: 74rem;
 	border-radius: var(--border-radius-tl) var(--border-radius-tr) var(--border-radius-br) var(--border-radius-bl);
 	max-width: 100%;
 	position: relative;
@@ -276,31 +276,6 @@ body.is-instant:after {
 	100% {
 		transform: rotate(360deg);
 	}
-}
-
-.deferred:before {
-	content: '';
-	display: block;
-	width: 4rem;
-	height: 4rem;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -2rem 0 0 -2rem;
-	animation: loading-spinner 1s infinite linear;
-	transition: opacity 0.25s ease;
-	transition-delay: 0.5s;
-	opacity: 0;
-	z-index: -1;
-	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOTZweCIgaGVpZ2h0PSI5NnB4IiB2aWV3Qm94PSIwIDAgOTYgOTYiIHpvb21BbmRQYW49ImRpc2FibGUiPjxzdHlsZT5jaXJjbGUge2ZpbGw6IHRyYW5zcGFyZW50OyBzdHJva2U6ICNmZmY7IHN0cm9rZS13aWR0aDogMS41cHg7IH08L3N0eWxlPjxkZWZzPjxjbGlwUGF0aCBpZD0iY29ybmVyIj48cG9seWdvbiBwb2ludHM9IjAsMCA0OCwwIDQ4LDQ4IDk2LDQ4IDk2LDk2IDAsOTYiIC8+PC9jbGlwUGF0aD48L2RlZnM+PGcgY2xpcC1wYXRoPSJ1cmwoI2Nvcm5lcikiPjxjaXJjbGUgY3g9IjQ4IiBjeT0iNDgiIHI9IjMyIi8+PC9nPjwvc3ZnPg==');
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 3rem;
-}
-
-.deferred.loading:before {
-	opacity: 0.35;
-	z-index: 0;
 }
 
 .slideshow-background:after {
@@ -522,12 +497,13 @@ h1.style7 span.p:nth-child(n + 2), h2.style7 span.p:nth-child(n + 2), h3.style7 
 }
 
 h1.style1, h2.style1, h3.style1, p.style1 {
-	text-align: left;
 	color: #FFFFFF;
 	font-family: 'Gothic A1', sans-serif;
-	letter-spacing: 0.225rem;
-	width: calc(100% + 0.225rem);
-	font-size: 1em;
+	padding-left: calc(0.5rem * var(--indent-left));
+	padding-right: calc(0.5rem * var(--indent-right));
+	letter-spacing: -0.025rem;
+	width: 100%;
+	font-size: 1.125em;
 	line-height: 1.375;
 	font-weight: 200;
 }
@@ -615,20 +591,19 @@ h1.style3 span.p:nth-child(n + 2), h2.style3 span.p:nth-child(n + 2), h3.style3 
 
 .buttons.style1 li a {
 	display: inline-flex;
-	width: auto;
-	height: 4.25rem;
-	line-height: 4.25rem;
-	padding: 0 2.125rem;
+	width: 23.5rem;
+	height: 4.5rem;
+	line-height: 4.5rem;
+	padding: 0 0.5rem;
 	vertical-align: middle;
 	text-transform: uppercase;
 	font-family: 'Inter', sans-serif;
 	letter-spacing: 0.4rem;
-	padding-left: calc(0.4rem + 2.125rem);
+	padding-left: calc(0.4rem + 0.5rem);
 	font-size: 0.75em;
 	font-weight: 400;
 	border-radius: 0rem;
 	flex-direction: row-reverse;
-	justify-content: flex-end;
 	transition: transform 0.25s ease, color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 
@@ -648,10 +623,6 @@ h1.style3 span.p:nth-child(n + 2), h2.style3 span.p:nth-child(n + 2), h3.style3 
 .buttons.style1 li a .label {
 	direction: var(--site-language-direction);
 	overflow: hidden;
-	flex-grow: 1;
-	flex-shrink: 1;
-	text-align: left;
-	width: 100%;
 }
 
 .buttons.style1 .button {
@@ -703,7 +674,7 @@ h1.style3 span.p:nth-child(n + 2), h2.style3 span.p:nth-child(n + 2), h3.style3 
 
 .image.style1 .frame {
 	width: 42.25rem;
-	height: 30.125rem;
+	height: 28.5rem;
 	border-radius: 0.75rem;
 	transition: none;
 }
@@ -728,12 +699,13 @@ h1.style3 span.p:nth-child(n + 2), h2.style3 span.p:nth-child(n + 2), h3.style3 
 }
 
 .image.style2 .frame {
-	width: 16.5rem;
-	height: 13rem;
+	width: 23.25rem;
+	height: 15.625rem;
 	border-radius: 100%;
-	border-color: rgba(255,255,255,0.031);
+	border-color: rgba(255,255,255,0.851);
 	border-style: solid;
 	border-width: 1px;
+	box-shadow: -0.301rem 0.399rem 2rem 0rem transparent;
 	transition: none;
 }
 
@@ -802,8 +774,8 @@ h1.style3 span.p:nth-child(n + 2), h2.style3 span.p:nth-child(n + 2), h3.style3 
 }
 
 .image.style4 .frame {
-	width: 15.5rem;
-	height: 14.125rem;
+	width: 14.625rem;
+	height: 14.5rem;
 	border-radius: 100%;
 	border-color: #FFFFFF;
 	border-style: solid;
@@ -818,6 +790,8 @@ h1.style3 span.p:nth-child(n + 2), h2.style3 span.p:nth-child(n + 2), h3.style3 
 	width: 100% !important;
 	border-radius: inherit !important;
 	padding: 0.5rem;
+	-webkit-touch-callout: none;
+	user-select: none;
 }
 
 .image.style4 .frame img {
@@ -963,7 +937,7 @@ h1.style3 span.p:nth-child(n + 2), h2.style3 span.p:nth-child(n + 2), h3.style3 
 .container.style2 > .wrapper {
 	display: block;
 	margin: 0 auto 0 0;
-	width: 81rem;
+	width: 85rem;
 	background-color: transparent;
 }
 
@@ -1662,9 +1636,11 @@ h1.style3 span.p:nth-child(n + 2), h2.style3 span.p:nth-child(n + 2), h3.style3 
 	}
 	
 	h1.style1, h2.style1, h3.style1, p.style1 {
-		letter-spacing: 0.196875rem;
-		width: calc(100% + 0.196875rem);
-		font-size: 1em;
+		padding-left: calc(0.25rem * var(--indent-left));
+		padding-right: calc(0.25rem * var(--indent-right));
+		letter-spacing: -0.021875rem;
+		width: 100%;
+		font-size: 1.125em;
 		line-height: 1.375;
 	}
 	
@@ -1689,7 +1665,7 @@ h1.style3 span.p:nth-child(n + 2), h2.style3 span.p:nth-child(n + 2), h3.style3 
 	
 	.buttons.style1 li a {
 		letter-spacing: 0.4rem;
-		padding-left: calc(0.4rem + 2.125rem);
+		padding-left: calc(0.4rem + 0.5rem);
 		font-size: 1em;
 	}
 	
@@ -1698,7 +1674,7 @@ h1.style3 span.p:nth-child(n + 2), h2.style3 span.p:nth-child(n + 2), h3.style3 
 	}
 	
 	.image.style1 .frame {
-		width: 42.25rem;
+		width: 21.5rem;
 		height: 25rem !important;
 	}
 	
@@ -1874,6 +1850,10 @@ h1.style3 span.p:nth-child(n + 2), h2.style3 span.p:nth-child(n + 2), h3.style3 
 		--spacing: 1.75rem;
 	}
 	
+	.buttons.style1 li a {
+		width: 23.5rem;
+	}
+	
 	.image.style1 .frame {
 		height: 20rem !important;
 	}
@@ -1903,7 +1883,7 @@ h1.style3 span.p:nth-child(n + 2), h2.style3 span.p:nth-child(n + 2), h3.style3 
 	}
 	
 	h1.style1, h2.style1, h3.style1, p.style1 {
-		font-size: 1em;
+		font-size: 1.125em;
 	}
 	
 	h1.style3, h2.style3, h3.style3, p.style3 {
